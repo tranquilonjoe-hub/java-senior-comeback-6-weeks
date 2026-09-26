@@ -39,11 +39,6 @@ public class Person {
         return "Person{ id=" + id + ", name='" + name + '\'' + ", age=" + age + "}";
     }
 
- /*   @Override
-    public int compare(Person p1, Person p2) {
-        return p1.getName().compareTo(p2.getName());
-    }*/
-
     @Override
     public boolean equals(Object obj) {
         if (obj == null) return false;
