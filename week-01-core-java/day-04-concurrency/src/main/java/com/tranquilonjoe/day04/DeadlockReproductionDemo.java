@@ -1,9 +1,12 @@
 package com.tranquilonjoe.day04;
-
+/**
+ * Intentionally demonstrates a Java monitor deadlock.
+ * Run separately and stop the JVM after inspecting with jstack.
+ */
 public class DeadlockReproductionDemo {
 
-    public static final Object LOCK_A = new Object();
-    public static final Object LOCK_B = new Object();
+    private static final Object LOCK_A = new Object();
+    private static final Object LOCK_B = new Object();
 
     public static void main(String[] args) {
 
@@ -23,15 +26,15 @@ public class DeadlockReproductionDemo {
         }, "Thread-1");
 
         Thread thread2 = new Thread(() -> {
-            synchronized (LOCK_A) {
-                System.out.println("Thread-2 acquired LOCK_A");
+            synchronized (LOCK_B) {
+                System.out.println("Thread-2 acquired LOCK_B");
 
                 sleep(1000);
 
-                System.out.println("Thread-2 waiting for LOCK_B");
+                System.out.println("Thread-2 waiting for LOCK_A");
 
-                synchronized (LOCK_B) {
-                    System.out.println("Thread-2 acquired LOCK_B");
+                synchronized (LOCK_A) {
+                    System.out.println("Thread-2 acquired LOCK_A");
                 }
             }
 
