@@ -6,7 +6,7 @@
 
 **Java:** JDK 21  
 
-**Current milestone:** Day 6 — Maven & Build Engineering
+**Current milestone:** Day 7 — JUnit 5, Mockito and Testcontainers
 
 
 
@@ -28,7 +28,7 @@
 
 | 5 | JPMS, Reflection, ServiceLoader, SPI | Completed | `31c8ad0` |
 
-| 6 | Maven, Dependencies, Build Lifecycle, Plugins | Build verified; Git push pending | — |
+| 6 | Maven, Dependencies, Build Lifecycle, Plugins | Completed | `851bebb` |
 
 
 
@@ -162,7 +162,7 @@
 - [x] Ran application successfully using `java -jar`
 - [x] Verified `mvn clean verify`
 - [x] Updated `.gitignore` to exclude `dependency-reduced-pom.xml`
-- [ ] Committed and pushed Day 6
+- [x] Committed and pushed Day 6
 
 **Maven revision commands:**
 
@@ -189,9 +189,11 @@ Run these commands from the `day-06-maven` directory.
 - Hands-on dependency conflict troubleshooting
 - Advanced Shade configurations, if required later
 
-**Git commit:** Pending
+**Git commit:** `851bebb`
 
-**Revision status:** Practical work completed; revisit during Week 6.
+**Status:** Completed
+
+**Revision status:** Completed; revisit during Week 6.
 
 
 
