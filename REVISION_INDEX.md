@@ -6,7 +6,7 @@
 
 **Java:** JDK 21  
 
-**Current milestone:** Day 7 — JUnit 5, Mockito and Testcontainers
+**Current milestone:** Day 7 — Week 1 Gap Closure and Integrated Mini-Project
 
 
 
@@ -28,7 +28,9 @@
 
 | 5 | JPMS, Reflection, ServiceLoader, SPI | Completed | `31c8ad0` |
 
-| 6 | Maven, Dependencies, Build Lifecycle, Plugins | Completed | `851bebb` |
+| 6 | Maven, Dependencies, Build Lifecycle, Plugins | Completed early (original Day 8) | `851bebb` |
+
+| 7 | Week 1 Gap Closure, Collections Hands-on, Integrated Mini-Project | Not started | — |
 
 
 
@@ -133,7 +135,7 @@
 
 **Project:** `week-01-core-java/day-06-maven/`
 
-**Status:** Concepts, practical exercises and build verification completed. Git commit and push pending.
+**Status:** Completed — build verified, committed and pushed.
 
 **Modules:**
 - `order-common` — Shared `Order` record
@@ -191,9 +193,136 @@ Run these commands from the `day-06-maven` directory.
 
 **Git commit:** `851bebb`
 
-**Status:** Completed
-
 **Revision status:** Completed; revisit during Week 6.
+
+
+
+### Day 7 — Week 1 Gap Closure and Integrated Mini-Project
+
+**Status:** Not started
+
+**Project path:** `week-01-core-java/day-07-week1-review/`
+
+**Goal:** Complete outstanding Week 1 practical exercises, verify original syllabus coverage, and integrate the concepts learned during Days 1–5.
+
+#### Part 1 — Collections and Data Structures
+
+- [ ] Queue interface and FIFO behaviour
+- [ ] ArrayDeque as a Queue
+- [ ] PriorityQueue and comparator-based ordering
+- [ ] Deque operations (both ends)
+- [ ] ArrayDeque versus LinkedList
+- [ ] BlockingQueue versus ordinary Queue
+- [ ] Time complexity and performance tradeoffs
+- [ ] Practical scenarios: task processing, priority scheduling and bounded producer-consumer systems
+
+#### Part 2 — Week 1 Integrated Mini-Project
+
+Build a Java 21 order-processing application combining:
+
+- [ ] Records for immutable order data
+- [ ] Collections for order storage and processing
+- [ ] Streams for filtering, grouping and aggregation
+- [ ] Optional for missing-value handling
+- [ ] Pattern matching and switch expressions
+- [ ] ExecutorService or CompletableFuture for concurrent processing
+- [ ] Appropriate exception handling and input validation
+- [ ] Practical tests and output verification
+- [ ] Git commit and push
+
+#### Part 3 — Original Week 1 Coverage Audit
+
+- [ ] OOP principles and polymorphism
+- [ ] List, Set, Map and Queue
+- [ ] Streams and functional programming
+- [ ] Optional and null-handling practices
+- [ ] `var`, records, sealed classes and text blocks
+- [ ] Pattern matching and switch expressions
+- [ ] Java modules (JPMS)
+- [ ] Thread, Runnable, ExecutorService and CompletableFuture
+- [ ] Java 17/20 features reviewed in the context of JDK 21
+- [ ] Outstanding questions documented
+
+#### Part 4 — Review and Revision
+
+- [ ] Explain concepts from fundamentals
+- [ ] Compare alternatives and production tradeoffs
+- [ ] Review key data structure complexities
+- [ ] Identify remaining weaknesses
+- [ ] Update REVISION_INDEX.md
+- [ ] Confirm readiness for Week 2
+
+**Git commit:** Pending
+
+**Revision status:** Pending
+
+**Next milestone after Day 7:** Day 9 — Gradle and Kotlin DSL.
+
+
+## Roadmap Alignment and Coverage Tracking
+
+**Master syllabus:** Original six-week Senior Java Developer Comeback Roadmap.
+
+**Learning approach:** Fundamentals → internals → practical implementation → production scenarios → tradeoffs → interview preparation → revision.
+
+**Coverage policy:**
+- Original roadmap topics are mandatory minimum coverage.
+- Additional deep dives are encouraged where relevant.
+- A concept being explained does not automatically mean its practical exercise is complete.
+- Missing topics must be tracked explicitly rather than silently skipped.
+- Day numbers reflect the original schedule where possible; completed work is never discarded or unnecessarily repeated.
+
+### Week 1 — Outstanding Work
+
+- [ ] Queue, PriorityQueue and Deque hands-on
+- [ ] Combined Week 1 mini-project
+- [ ] Java 17/20 feature coverage audit
+- [ ] Week 1 final review
+
+### Week 2 — Planned Work
+
+- [x] Original Day 8 — Maven and dependency management (completed as actual Day 6; commit `851bebb`)
+- [ ] Day 9 — Gradle, Kotlin DSL and Maven-to-Gradle conversion
+- [ ] Day 10 — JUnit 5 and parameterized testing
+- [ ] Day 11 — Mockito, mocks, stubs and spies
+- [ ] Day 12 — Testcontainers and database integration testing
+- [ ] Day 13 — GitHub Actions and Jenkins CI/CD fundamentals
+- [ ] Day 14 — Integrated build, testing and CI mini-project
+
+### Future Practical Exercises
+
+- [ ] Spring Boot 3 virtual threads versus platform threads
+- [ ] Load testing: throughput, latency and error rates
+- [ ] HikariCP connection-pool saturation
+- [ ] Downstream API timeouts and concurrency limits
+- [ ] Revisit any outstanding production scenarios identified during revision
+
+### Progress Verification Rules
+
+A milestone is marked **Completed** only when its required concepts and hands-on work have been verified.
+
+A milestone is marked **Partially completed** when practical exercises or required topics remain.
+
+Git commits, project paths, revision notes and outstanding tasks must be recorded accurately.
+
+## Revision Commands
+
+- **Quick revision:** Summarize the topic with key concepts and common mistakes.
+- **Deep revision:** Teach from fundamentals with practical examples and tradeoffs.
+- **Interview mode:** Ask one question at a time, without hints.
+- **Coding mode:** Give a hands-on exercise and review my solution.
+- **Production mode:** Explain real-world usage, limitations and alternatives.
+- **Coverage audit:** Compare completed topics and hands-on work against the original roadmap and identify gaps.
+
+## Milestone Completion Checklist
+
+- [ ] Concepts explained and understood
+- [ ] Practical code completed
+- [ ] Interview questions reviewed
+- [ ] Maven build or relevant tests verified
+- [ ] Git commit and push completed
+- [ ] Revision Index updated
+- [ ] Outstanding topics recorded
 
 
 
