@@ -197,18 +197,52 @@ Run these commands from the `day-06-maven` directory.
 
 
 
-### Day 7 — Week 1 Gap Closure and Integrated Mini-Project
+### Day 7 — Queue Fundamentals: CircularQueue
 
-**Status:** Not started
+**Status:** Completed — implementation and manual testing
 
-**Project path:** `week-01-core-java/day-07-week1-review/`
+**Code location:** `week-01-core-java/day-07-week1-review/`
+
+**Package:** `com.tranquilonjoe.day07`
+
+**Classes:**
+- `CircularQueue.java`
+- `CircularQueueDemo.java`
+
+**Concepts covered:**
+- FIFO queue behavior
+- Circular array implementation
+- Head, tail, size and capacity
+- Modulo-based index wraparound
+- Empty versus full queue detection
+- `offer()`, `poll()`, `peek()`
+- Primitive `int[]` storage and `Integer` return values
+- Logical versus physical array order
+- `toString()` with `StringBuilder`
+- O(1) insertion and removal for a fixed-capacity circular queue
+
+**Manual tests passed:**
+- Normal insertion and removal
+- Full-capacity insertion rejection
+- Empty queue handling
+- Zero and negative values
+- Invalid constructor capacity
+- Repeated circular wraparound
+- FIFO ordering and size consistency
+
+**Still pending in Day 7:**
+- Java `ArrayDeque` comparison and usage
+- `PriorityQueue` and binary heap internals
+- `Deque` hands-on
+- `BlockingQueue` producer-consumer hands-on
+- Week 1 integrated mini-project and coverage audit
 
 **Goal:** Complete outstanding Week 1 practical exercises, verify original syllabus coverage, and integrate the concepts learned during Days 1–5.
 
 #### Part 1 — Collections and Data Structures
 
-- [ ] Queue interface and FIFO behaviour
-- [ ] ArrayDeque as a Queue
+- [x] Queue interface and FIFO behaviour
+- [x] ArrayDeque as a Queue
 - [ ] PriorityQueue and comparator-based ordering
 - [ ] Deque operations (both ends)
 - [ ] ArrayDeque versus LinkedList
@@ -323,6 +357,4 @@ Git commits, project paths, revision notes and outstanding tasks must be recorde
 - [ ] Git commit and push completed
 - [ ] Revision Index updated
 - [ ] Outstanding topics recorded
-
-
 
