@@ -197,47 +197,94 @@ Run these commands from the `day-06-maven` directory.
 
 
 
-### Day 7 — Queue Fundamentals: CircularQueue
+## Day 7 — Week 1 Review: Queues and Concurrency
 
-**Status:** Completed — implementation and manual testing
+**Status:** In progress — Queue exercises completed; integrated Java 21 mini-project and Week 1 revision audit pending.
 
-**Code location:** `week-01-core-java/day-07-week1-review/`
+### Milestone 1 — CircularQueue
 
-**Package:** `com.tranquilonjoe.day07`
+**Commit:** `9cd7f68`
 
-**Classes:**
-- `CircularQueue.java`
-- `CircularQueueDemo.java`
+**Files:**
+- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/CircularQueue.java`
+- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/CircularQueueDemo.java`
 
-**Concepts covered:**
-- FIFO queue behavior
-- Circular array implementation
-- Head, tail, size and capacity
-- Modulo-based index wraparound
-- Empty versus full queue detection
-- `offer()`, `poll()`, `peek()`
-- Primitive `int[]` storage and `Integer` return values
-- Logical versus physical array order
-- `toString()` with `StringBuilder`
-- O(1) insertion and removal for a fixed-capacity circular queue
+**Concepts:**
+- Fixed-capacity circular array implementation
+- Head, tail, size, and capacity management
+- FIFO operations: `offer()`, `poll()`, `peek()`
+- Wraparound using modulo arithmetic
+- Full and empty queue handling
+- Input validation and boundary testing
 
-**Manual tests passed:**
-- Normal insertion and removal
-- Full-capacity insertion rejection
-- Empty queue handling
-- Zero and negative values
-- Invalid constructor capacity
-- Repeated circular wraparound
-- FIFO ordering and size consistency
+**Revision points:**
+- Explain circular queues and why wraparound is needed.
+- Explain time complexity of queue operations.
+- Trace head and tail movement manually.
 
-**Still pending in Day 7:**
-- Java `ArrayDeque` comparison and usage
-- `PriorityQueue` and binary heap internals
-- `Deque` hands-on
-- `BlockingQueue` producer-consumer hands-on
-- Week 1 integrated mini-project and coverage audit
+### Milestone 2 — PriorityQueue and Deque
 
-**Goal:** Complete outstanding Week 1 practical exercises, verify original syllabus coverage, and integrate the concepts learned during Days 1–5.
+**Commit:** `06bfc81`
+
+**Files:**
+- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/PriorityQueueDemo.java`
+- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/Order.java`
+- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/OrderPriorityQueueDemo.java`
+- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/DequeDemo.java`
+
+**Concepts:**
+- Min-heap and max-heap ordering
+- PriorityQueue insertion and removal complexity
+- Custom comparators with multiple sorting criteria
+- Priority ordering with FIFO tie-breaking
+- Priority starvation
+- Deque operations for FIFO and LIFO
+- ArrayDeque versus LinkedList
+- Thread-safety limitations of PriorityQueue and ArrayDeque
+
+**Revision points:**
+- Explain why PriorityQueue iteration is not sorted.
+- Explain heap insertion and removal.
+- Explain comparator chaining and `reversed()`.
+- Compare Queue, Deque, and PriorityQueue.
+
+### Milestone 3 — BlockingQueue and Graceful Shutdown
+
+**Commit:** `61a5cf3`
+
+**Files:**
+- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/BlockingQueueDemo.java`
+- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/BlockingQueueEmptyDemo.java`
+- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/BlockingQueueTimeoutDemo.java`
+- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/MultiProducerConsumerDemo.java`
+
+**Concepts:**
+- Bounded BlockingQueue
+- `put()` and `take()` blocking behavior
+- Timed `offer()` and `poll()`
+- Timeout measurement using `System.nanoTime()`
+- Multiple producers and consumers
+- FIFO dequeue order versus processing completion order
+- Thread coordination with `start()` and `join()`
+- Poison-pill shutdown mechanism
+- Interruption handling
+- Deadlock risks with bounded queues
+
+**Revision points:**
+- Explain how ArrayBlockingQueue coordinates producers and consumers.
+- Compare blocking, non-blocking, and timed queue operations.
+- Explain why a timed offer can return before its timeout.
+- Explain why consumers must start before joining producers in a bounded-queue scenario.
+- Explain why shutdown signals should be submitted after producers finish.
+- Explain why one poison pill per consumer is needed in this design.
+
+### Pending Day 7 Work
+
+- [ ] Integrated Java 21 order-processing mini-project
+- [ ] Week 1 revision audit
+- [ ] Final Day 7 commit and revision checkpoint
+
+**Revision status:** Queue and concurrency exercises completed; full Day 7 revision pending.
 
 #### Part 1 — Collections and Data Structures
 
