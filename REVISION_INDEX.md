@@ -1,140 +1,81 @@
 # Senior Java Developer Comeback — Revision Index
 
-
-
-**Repository:** java-senior-comeback-6-weeks  
-
+**Repository:** `java-senior-comeback-6-weeks`  
 **Java:** JDK 21  
-
-**Current milestone:** Day 7 — Week 1 Gap Closure and Integrated Mini-Project
-
-
+**Current milestone:** Day 7 — Integrated mini-project verified; final commit and Week 1 coverage audit pending
 
 ## Week 1 — Core Java and Modern Java
 
-
-
 | Day | Topics | Status | Commit |
-
 |---|---|---|---|
-
-| 1 | OOP, Collections, List, Set, Map, Queue concepts | Completed; queue hands-on pending | — |
-
+| 1 | OOP, Collections, List, Set, Map, Queue concepts | Completed; queue hands-on addressed in Day 7 | — |
 | 2 | Streams, Collectors, Optional | Completed | — |
-
 | 3 | Records, Sealed Classes, Pattern Matching, Switch Expressions | Completed | `63a67c9` |
-
 | 4 | Concurrency, Executors, CompletableFuture, ForkJoinPool, Virtual Threads | Completed | `a52f2ae` |
-
 | 5 | JPMS, Reflection, ServiceLoader, SPI | Completed | `31c8ad0` |
-
 | 6 | Maven, Dependencies, Build Lifecycle, Plugins | Completed early (original Day 8) | `851bebb` |
-
-| 7 | Week 1 Gap Closure, Collections Hands-on, Integrated Mini-Project | Not started | — |
-
-
+| 7 | Queue gap closure, concurrent order-processing mini-project, Week 1 audit | Coding and manual tests completed; audit and final commit pending | Milestones below |
 
 ## Revision Topics
-
-
 
 ### Day 1 — OOP and Collections
 
 - Classes, objects, inheritance, encapsulation, abstraction, polymorphism
-
-- equals(), hashCode(), Comparator, Comparable
-
+- `equals()`, `hashCode()`, `Comparator`, `Comparable`
 - List, Set, Map and their implementations
-
 - HashMap, TreeMap and TreeSet internals
-
-- **Pending:** Queue, PriorityQueue and Deque hands-on
-
-
+- **Queue, PriorityQueue and Deque hands-on:** completed during Day 7
 
 ### Day 2 — Streams and Optional
 
 - Stream operations and pipelines
-
-- Filtering, mapping, flatMap
-
-- Collectors, groupingBy, toMap
-
+- Filtering, mapping, `flatMap`
+- Collectors, `groupingBy`, `toMap`
 - Optional and null-handling practices
-
-
 
 ### Day 3 — Modern Java
 
 - Records and immutability
-
 - Sealed classes
-
 - Pattern matching
-
 - Switch expressions
-
 - Local variable type inference
-
 - Practical order-processing examples
 
-
+**Commit:** `63a67c9`
 
 ### Day 4 — Concurrency
 
-- Threads, synchronization and volatile
-
-- AtomicInteger, CAS and ABA
-
-- ExecutorService, Callable, Future
-
-- CompletableFuture
-
+- Threads, synchronization and `volatile`
+- `AtomicInteger`, CAS and ABA
+- `ExecutorService`, `Callable`, `Future`
+- `CompletableFuture`
 - Locks, deadlocks and interruption
-
-- BlockingQueue and concurrent collections
-
-- ForkJoinPool and work stealing
-
+- `BlockingQueue` and concurrent collections
+- `ForkJoinPool` and work stealing
 - Virtual threads, pinning and semaphores
-
 - **Revisit:** Virtual threads with Spring Boot, HikariCP and load testing
 
-
+**Commit:** `a52f2ae`
 
 ### Day 5 — JPMS
 
 **Project:** `week-01-core-java/day-05-jpms/`
 
-
-
 - Maven multi-module architecture
-
-- module-info.java
-
-- requires and requires transitive
-
-- exports, opens and reflection
-
-- ServiceLoader, uses and provides
-
-- PaymentProvider SPI
-
-- PaymentProviderSelector and provider caching
-
+- `module-info.java`
+- `requires` and `requires transitive`
+- `exports`, `opens` and reflection
+- `ServiceLoader`, `uses` and `provides`
+- `PaymentProvider` SPI
+- `PaymentProviderSelector` and provider caching
 - Unmodifiable maps versus thread safety
-
-
 
 **Commit:** `31c8ad0`
 
-
-
-
 ### Day 6 — Maven Build Engineering
 
-**Project:** `week-01-core-java/day-06-maven/`
-
+**Project:** `week-01-core-java/day-06-maven/`  
 **Status:** Completed — build verified, committed and pushed.
 
 **Modules:**
@@ -166,7 +107,7 @@
 - [x] Updated `.gitignore` to exclude `dependency-reduced-pom.xml`
 - [x] Committed and pushed Day 6
 
-**Maven revision commands:**
+**Maven revision commands** (run from `day-06-maven`):
 
 ```bash
 mvn clean verify
@@ -176,8 +117,6 @@ mvn clean package -pl order-app -am
 mvn clean package -pl order-common -amd
 java -jar order-app/target/order-app-1.0-SNAPSHOT.jar
 ```
-
-Run these commands from the `day-06-maven` directory.
 
 **Important interview points:**
 - `<parent>` provides inheritance; `<modules>` provides aggregation.
@@ -191,23 +130,23 @@ Run these commands from the `day-06-maven` directory.
 - Hands-on dependency conflict troubleshooting
 - Advanced Shade configurations, if required later
 
-**Git commit:** `851bebb`
-
+**Git commit:** `851bebb`  
 **Revision status:** Completed; revisit during Week 6.
-
-
 
 ## Day 7 — Week 1 Review: Queues and Concurrency
 
-**Status:** In progress — Queue exercises completed; integrated Java 21 mini-project and Week 1 revision audit pending.
+**Project:** `week-01-core-java/day-07-week1-review/`  
+**Status:** Queue exercises and integrated mini-project manually verified. Final commit and Week 1 coverage audit pending.
 
 ### Milestone 1 — CircularQueue
 
 **Commit:** `9cd7f68`
 
 **Files:**
-- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/CircularQueue.java`
-- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/CircularQueueDemo.java`
+- `src/main/java/com/tranquilonjoe/day07/CircularQueue.java`
+- `src/main/java/com/tranquilonjoe/day07/CircularQueueDemo.java`
+
+Paths in this Day 7 section are relative to the Day 7 project directory.
 
 **Concepts:**
 - Fixed-capacity circular array implementation
@@ -227,10 +166,10 @@ Run these commands from the `day-06-maven` directory.
 **Commit:** `06bfc81`
 
 **Files:**
-- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/PriorityQueueDemo.java`
-- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/Order.java`
-- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/OrderPriorityQueueDemo.java`
-- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/DequeDemo.java`
+- `src/main/java/com/tranquilonjoe/day07/PriorityQueueDemo.java`
+- `src/main/java/com/tranquilonjoe/day07/Order.java`
+- `src/main/java/com/tranquilonjoe/day07/OrderPriorityQueueDemo.java`
+- `src/main/java/com/tranquilonjoe/day07/DequeDemo.java`
 
 **Concepts:**
 - Min-heap and max-heap ordering
@@ -253,13 +192,13 @@ Run these commands from the `day-06-maven` directory.
 **Commit:** `61a5cf3`
 
 **Files:**
-- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/BlockingQueueDemo.java`
-- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/BlockingQueueEmptyDemo.java`
-- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/BlockingQueueTimeoutDemo.java`
-- `week-01-core-java/day-07-week1-review/src/main/java/com/tranquilonjoe/day07/MultiProducerConsumerDemo.java`
+- `src/main/java/com/tranquilonjoe/day07/BlockingQueueDemo.java`
+- `src/main/java/com/tranquilonjoe/day07/BlockingQueueEmptyDemo.java`
+- `src/main/java/com/tranquilonjoe/day07/BlockingQueueTimeoutDemo.java`
+- `src/main/java/com/tranquilonjoe/day07/MultiProducerConsumerDemo.java`
 
 **Concepts:**
-- Bounded BlockingQueue
+- Bounded `BlockingQueue`
 - `put()` and `take()` blocking behavior
 - Timed `offer()` and `poll()`
 - Timeout measurement using `System.nanoTime()`
@@ -276,69 +215,113 @@ Run these commands from the `day-06-maven` directory.
 - Explain why a timed offer can return before its timeout.
 - Explain why consumers must start before joining producers in a bounded-queue scenario.
 - Explain why shutdown signals should be submitted after producers finish.
-- Explain why one poison pill per consumer is needed in this design.
+- Explain why one poison pill per surviving consumer is needed in this design.
 
-### Pending Day 7 Work
+### Milestone 4 — Java 21 Integrated Order-Processing Mini-Project
 
-- [ ] Integrated Java 21 order-processing mini-project
-- [ ] Week 1 revision audit
-- [ ] Final Day 7 commit and revision checkpoint
+**Commit:** Pending — record hash after push.
 
-**Revision status:** Queue and concurrency exercises completed; full Day 7 revision pending.
+**Package:** `com.tranquilonjoe.day07.orderprocessing`
 
-#### Part 1 — Collections and Data Structures
+**Files:**
+- `Order.java` — validated mutable order model and status transitions
+- `OrderStatus.java` — `NEW`, `PROCESSING`, `COMPLETED`, `FAILED`
+- `OrderService.java` — registration, lookup with `Optional`, and retrieval
+- `OrderTask.java` — sealed interface with `Process` and `Shutdown` records
+- `OrderProcessor.java` — bounded queue, workers, failure handling, interruption, deduplication
+- `OrderProcessingApplication.java` — normal producer/two-worker application
+- `OrderProcessingInterruptionDemo.java` — deterministic interruption and surviving-worker demo
+
+**Concepts and implementation:**
+- [x] Input validation and explicit order-state transitions
+- [x] Map-based order registration and `Optional` lookup
+- [x] Java 21 sealed types, records, and pattern-matching switch
+- [x] `ArrayBlockingQueue` producer-consumer processing with two workers
+- [x] Per-order runtime failure isolation
+- [x] Poison-pill shutdown after task submission
+- [x] Deterministic `CountDownLatch` coordination
+- [x] Interruption propagation, failed-order marking, and worker termination
+- [x] `join()` for worker completion and visibility
+- [x] Concurrent submitted-ID set for atomic duplicate-submission rejection
+- [x] Cleanup of reserved ID if `queue.put()` is interrupted
+- [x] Manual output verification for normal and interruption demos
+- [ ] Final Git commit and push
+
+**Verified scenarios (console output):**
+
+1. **Normal application:** Eight orders submitted. Orders 100, 101, 103, 104, 106, 107, and 108 completed. Order 105 failed as designed with a simulated payment-processing exception. Both workers received shutdown messages. Exit code 0.
+2. **Interruption demo:** Worker 1 was interrupted while blocked on a test latch during Order 100. Order 100 became `FAILED`. Worker 2 completed Orders 101 and 102, consumed its shutdown message, and exited. Exit code 0.
+3. **Duplicate submission:** A second submission of Order 101 was rejected with `Order already submitted: 101`, including while Worker 2 was processing its first submission.
+
+**Important revision/interview points:**
+- Atomic `queue.take()` removes one queue entry; it does not make referenced objects thread-safe.
+- Two distinct processing tasks can reference the same mutable Order object.
+- `ConcurrentHashMap.newKeySet().add(id)` atomically reserves a submission ID.
+- `queue.contains()` is not sufficient for deduplication: an order may already be in progress, and check-then-submit can race.
+- Poison pills are application messages, not `Thread.interrupt()` calls.
+- FIFO dequeue order does not guarantee the order in which different workers finish processing.
+- `CountDownLatch` counts signals, not worker identities; its `await()` is interruptible.
+- An interrupted worker can terminate while another worker continues.
+- `join()` waits for thread termination and establishes visibility of actions performed by the joined thread.
+- Current demo assumes exclusive worker ownership of each accepted Order. Submitted-ID deduplication alone does not make arbitrary concurrent mutations of Order thread-safe.
+
+**Known scope limits (not Day 7 blockers):**
+- No persistent order storage, retries, or crash recovery.
+- No general worker-pool lifecycle or shutdown-state enforcement.
+- `OrderProcessor` includes a thread-name-specific latch hook for the interruption demonstration; it is not production-grade coordination design.
+- Runtime verification is manual, not an automated JUnit test suite.
+
+### Day 7 — Collections and Data Structures Review
 
 - [x] Queue interface and FIFO behaviour
 - [x] ArrayDeque as a Queue
-- [ ] PriorityQueue and comparator-based ordering
-- [ ] Deque operations (both ends)
-- [ ] ArrayDeque versus LinkedList
-- [ ] BlockingQueue versus ordinary Queue
-- [ ] Time complexity and performance tradeoffs
-- [ ] Practical scenarios: task processing, priority scheduling and bounded producer-consumer systems
+- [x] PriorityQueue and comparator-based ordering
+- [x] Deque operations (both ends)
+- [x] ArrayDeque versus LinkedList
+- [x] BlockingQueue versus ordinary Queue
+- [x] Time complexity and performance tradeoffs
+- [x] Practical scenarios: task processing, priority scheduling and bounded producer-consumer systems
 
-#### Part 2 — Week 1 Integrated Mini-Project
+### Original Week 1 Integrated Mini-Project Coverage
 
-Build a Java 21 order-processing application combining:
+The completed Day 7 project intentionally focuses on queues, worker coordination, failure handling, and Java 21 task modeling. The original broader integration checklist remains visible for an honest coverage audit.
 
-- [ ] Records for immutable order data
-- [ ] Collections for order storage and processing
-- [ ] Streams for filtering, grouping and aggregation
-- [ ] Optional for missing-value handling
-- [ ] Pattern matching and switch expressions
-- [ ] ExecutorService or CompletableFuture for concurrent processing
-- [ ] Appropriate exception handling and input validation
-- [ ] Practical tests and output verification
-- [ ] Git commit and push
+- [x] Records for immutable task data (`OrderTask` records; the Order entity itself is mutable)
+- [x] Collections for order storage and processing
+- [ ] Streams for filtering, grouping and aggregation **within the integrated mini-project**
+- [x] Optional for missing-value handling (`OrderService`)
+- [x] Pattern matching and switch expressions
+- [ ] ExecutorService or CompletableFuture **within the integrated mini-project** (covered separately on Day 4)
+- [x] Appropriate exception handling and input validation
+- [x] Practical manual tests and output verification
+- [ ] Final Git commit and push
 
-#### Part 3 — Original Week 1 Coverage Audit
+### Original Week 1 Coverage Audit — Pending
 
-- [ ] OOP principles and polymorphism
-- [ ] List, Set, Map and Queue
-- [ ] Streams and functional programming
-- [ ] Optional and null-handling practices
-- [ ] `var`, records, sealed classes and text blocks
-- [ ] Pattern matching and switch expressions
-- [ ] Java modules (JPMS)
-- [ ] Thread, Runnable, ExecutorService and CompletableFuture
-- [ ] Java 17/20 features reviewed in the context of JDK 21
-- [ ] Outstanding questions documented
+- [ ] Review OOP principles and polymorphism
+- [ ] Review List, Set, Map and Queue
+- [ ] Review Streams and functional programming
+- [ ] Review Optional and null-handling practices
+- [ ] Review `var`, records, sealed classes and text blocks
+- [ ] Review pattern matching and switch expressions
+- [ ] Review Java modules (JPMS)
+- [ ] Review Thread, Runnable, ExecutorService and CompletableFuture
+- [ ] Audit Java 17/20 features in the context of JDK 21
+- [ ] Document outstanding questions and gaps
 
-#### Part 4 — Review and Revision
+These audit boxes are not claims that topics were never studied; they track the separate final review.
 
-- [ ] Explain concepts from fundamentals
-- [ ] Compare alternatives and production tradeoffs
-- [ ] Review key data structure complexities
-- [ ] Identify remaining weaknesses
-- [ ] Update REVISION_INDEX.md
+### Day 7 Finalization
+
+- [x] Explain core queue/concurrency concepts and tradeoffs during implementation
+- [x] Verify integrated project output manually
+- [ ] Record final commit hash and push
+- [ ] Complete Week 1 coverage audit
 - [ ] Confirm readiness for Week 2
 
-**Git commit:** Pending
-
-**Revision status:** Pending
-
-**Next milestone after Day 7:** Day 9 — Gradle and Kotlin DSL.
-
+**Git commit:** Pending  
+**Revision status:** Coding completed; audit and commit pending.  
+**Next milestone:** Day 9 — Gradle and Kotlin DSL (after final Week 1 audit).
 
 ## Roadmap Alignment and Coverage Tracking
 
@@ -355,10 +338,12 @@ Build a Java 21 order-processing application combining:
 
 ### Week 1 — Outstanding Work
 
-- [ ] Queue, PriorityQueue and Deque hands-on
-- [ ] Combined Week 1 mini-project
+- [x] Queue, PriorityQueue and Deque hands-on
+- [x] Queue/concurrency-focused integrated mini-project coding and manual verification
+- [ ] Broader integrated-project gaps: Streams aggregation and ExecutorService/CompletableFuture integration (or explicitly defer with rationale)
 - [ ] Java 17/20 feature coverage audit
 - [ ] Week 1 final review
+- [ ] Final Day 7 commit and push
 
 ### Week 2 — Planned Work
 
@@ -376,7 +361,7 @@ Build a Java 21 order-processing application combining:
 - [ ] Load testing: throughput, latency and error rates
 - [ ] HikariCP connection-pool saturation
 - [ ] Downstream API timeouts and concurrency limits
-- [ ] Revisit any outstanding production scenarios identified during revision
+- [ ] Revisit outstanding production scenarios identified during revision
 
 ### Progress Verification Rules
 
@@ -397,6 +382,8 @@ Git commits, project paths, revision notes and outstanding tasks must be recorde
 
 ## Milestone Completion Checklist
 
+Use this checklist for each new milestone; it is a reusable template, not the status of every completed day.
+
 - [ ] Concepts explained and understood
 - [ ] Practical code completed
 - [ ] Interview questions reviewed
@@ -404,4 +391,3 @@ Git commits, project paths, revision notes and outstanding tasks must be recorde
 - [ ] Git commit and push completed
 - [ ] Revision Index updated
 - [ ] Outstanding topics recorded
-
