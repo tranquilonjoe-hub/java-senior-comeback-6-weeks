@@ -2,7 +2,9 @@
 
 **Repository:** `java-senior-comeback-6-weeks`  
 **Java:** JDK 21  
-**Current milestone:** Day 7 — Integrated mini-project verified; final commit and Week 1 coverage audit pending
+**Roadmap:** 6 weeks / 42 learning milestones  
+**Current milestone:** Week 1 conceptual audit completed  
+**Next milestone:** Day 9 — Gradle with Kotlin DSL
 
 ## Week 1 — Core Java and Modern Java
 
@@ -14,7 +16,7 @@
 | 4 | Concurrency, Executors, CompletableFuture, ForkJoinPool, Virtual Threads | Completed | `a52f2ae` |
 | 5 | JPMS, Reflection, ServiceLoader, SPI | Completed | `31c8ad0` |
 | 6 | Maven, Dependencies, Build Lifecycle, Plugins | Completed early (original Day 8) | `851bebb` |
-| 7 | Queue gap closure, concurrent order-processing mini-project, Week 1 audit | Coding and manual tests completed; audit and final commit pending | Milestones below |
+| 7 | Queue gap closure, concurrent order-processing mini-project, Week 1 audit | Coding, manual tests, final commit and conceptual audit completed | `ab48c73` |
 
 ## Revision Topics
 
@@ -136,7 +138,7 @@ java -jar order-app/target/order-app-1.0-SNAPSHOT.jar
 ## Day 7 — Week 1 Review: Queues and Concurrency
 
 **Project:** `week-01-core-java/day-07-week1-review/`  
-**Status:** Queue exercises and integrated mini-project manually verified. Final commit and Week 1 coverage audit pending.
+**Status:** Queue exercises and integrated mini-project manually verified, committed and pushed; Week 1 conceptual audit completed.
 
 ### Milestone 1 — CircularQueue
 
@@ -219,7 +221,7 @@ Paths in this Day 7 section are relative to the Day 7 project directory.
 
 ### Milestone 4 — Java 21 Integrated Order-Processing Mini-Project
 
-**Commit:** Pending — record hash after push.
+**Commit:** `ab48c73`
 
 **Package:** `com.tranquilonjoe.day07.orderprocessing`
 
@@ -245,7 +247,7 @@ Paths in this Day 7 section are relative to the Day 7 project directory.
 - [x] Concurrent submitted-ID set for atomic duplicate-submission rejection
 - [x] Cleanup of reserved ID if `queue.put()` is interrupted
 - [x] Manual output verification for normal and interruption demos
-- [ ] Final Git commit and push
+- [x] Final Git commit and push (`ab48c73`)
 
 **Verified scenarios (console output):**
 
@@ -294,20 +296,20 @@ The completed Day 7 project intentionally focuses on queues, worker coordination
 - [ ] ExecutorService or CompletableFuture **within the integrated mini-project** (covered separately on Day 4)
 - [x] Appropriate exception handling and input validation
 - [x] Practical manual tests and output verification
-- [ ] Final Git commit and push
+- [x] Final Git commit and push (`ab48c73`)
 
-### Original Week 1 Coverage Audit — Pending
+### Original Week 1 Coverage Audit — Conceptual Review Completed
 
-- [ ] Review OOP principles and polymorphism
-- [ ] Review List, Set, Map and Queue
-- [ ] Review Streams and functional programming
-- [ ] Review Optional and null-handling practices
-- [ ] Review `var`, records, sealed classes and text blocks
-- [ ] Review pattern matching and switch expressions
-- [ ] Review Java modules (JPMS)
-- [ ] Review Thread, Runnable, ExecutorService and CompletableFuture
-- [ ] Audit Java 17/20 features in the context of JDK 21
-- [ ] Document outstanding questions and gaps
+- [ ] Dedicated OOP principles and polymorphism review — follow-up
+- [x] Review List, Set, Map and Queue
+- [x] Review Streams and functional programming
+- [x] Review Optional and null-handling practices
+- [x] Review `var`, records, sealed classes and text blocks
+- [x] Review pattern matching and switch expressions
+- [x] Review Java modules (JPMS)
+- [x] Review Thread, Runnable, ExecutorService and CompletableFuture
+- [ ] Systematic Java 17/20 feature inventory in the context of JDK 21 — follow-up
+- [x] Document outstanding questions and gaps
 
 These audit boxes are not claims that topics were never studied; they track the separate final review.
 
@@ -315,13 +317,46 @@ These audit boxes are not claims that topics were never studied; they track the 
 
 - [x] Explain core queue/concurrency concepts and tradeoffs during implementation
 - [x] Verify integrated project output manually
-- [ ] Record final commit hash and push
-- [ ] Complete Week 1 coverage audit
-- [ ] Confirm readiness for Week 2
+- [x] Record final commit hash and push (`ab48c73`)
+- [x] Complete Week 1 conceptual coverage audit
+- [x] Confirm readiness for Week 2 (targeted revisions tracked)
 
-**Git commit:** Pending  
-**Revision status:** Coding completed; audit and commit pending.  
-**Next milestone:** Day 9 — Gradle and Kotlin DSL (after final Week 1 audit).
+**Git commit:** `ab48c73`  
+**Revision status:** Coding, manual verification, commit and conceptual audit completed; targeted revisions remain open.  
+**Next milestone:** Day 9 — Gradle and Kotlin DSL.
+
+## Week 1 — Final Conceptual Audit and Targeted Revisions
+
+**Audit recorded:** 4 November 2026  
+**Status:** Conceptual questions for Days 1–7 completed; targeted follow-ups remain.  
+**Integrated project commit:** `ab48c73`  
+**Next:** Day 9 — Gradle with Kotlin DSL.
+
+### Outstanding Revision Checklist
+
+- [ ] Atomic operations versus check-then-act races; `ConcurrentHashMap.newKeySet().add(id)` and rollback if `queue.put()` is interrupted.
+- [ ] `ConcurrentHashMap` map safety versus thread safety of mutable objects stored as values.
+- [ ] `volatile` visibility versus atomic state changes with CAS.
+- [ ] Bounded queues, backpressure, producer overload and unbounded queue memory risks.
+- [ ] `InterruptedException`, restoring interrupt status and exiting worker loops without busy exception loops.
+- [ ] `CountDownLatch` versus `Thread.join()` and `countDown()` in `finally`.
+- [ ] Maven compiler `<release>` versus `<source>` / `<target>` and API compatibility; dependency test scope.
+- [ ] JPMS `opens` versus `exports`, reflection, module path versus classpath.
+- [ ] Streams `Collectors.toMap()` duplicate-key merge semantics.
+- [ ] `TreeSet` comparator consistency with `equals()`.
+- [ ] Records with mutable components and defensive copies.
+- [ ] Dedicated OOP inheritance and polymorphism review.
+- [ ] Systematic Java 17/20 feature inventory against the original syllabus.
+
+### Explicitly Deferred Day 7 Scope
+
+The Day 7 integrated project is complete within its agreed queue/concurrency scope. The following are **not implemented in that project** and are not blockers for Day 9:
+
+- Streams filtering, grouping and aggregation inside the integrated project (studied separately on Day 2).
+- ExecutorService/CompletableFuture inside the integrated project (studied separately on Day 4).
+- Automated JUnit suite, persistence, retries, crash recovery and production worker lifecycle.
+
+The Week 1 conceptual audit does not imply that every optional hands-on extension was completed. No Day 7 expansion is required now.
 
 ## Roadmap Alignment and Coverage Tracking
 
@@ -340,10 +375,10 @@ These audit boxes are not claims that topics were never studied; they track the 
 
 - [x] Queue, PriorityQueue and Deque hands-on
 - [x] Queue/concurrency-focused integrated mini-project coding and manual verification
-- [ ] Broader integrated-project gaps: Streams aggregation and ExecutorService/CompletableFuture integration (or explicitly defer with rationale)
-- [ ] Java 17/20 feature coverage audit
-- [ ] Week 1 final review
-- [ ] Final Day 7 commit and push
+- [x] Broader integrated-project gaps explicitly deferred (Streams aggregation and ExecutorService/CompletableFuture integration)
+- [ ] Systematic Java 17/20 feature coverage inventory
+- [x] Week 1 conceptual review
+- [x] Final Day 7 commit and push (`ab48c73`)
 
 ### Week 2 — Planned Work
 
