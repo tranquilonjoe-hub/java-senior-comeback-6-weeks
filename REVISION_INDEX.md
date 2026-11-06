@@ -3,8 +3,8 @@
 **Repository:** `java-senior-comeback-6-weeks`  
 **Java:** JDK 21  
 **Roadmap:** 6 weeks / 42 learning milestones  
-**Current milestone:** Week 1 conceptual audit completed  
-**Next milestone:** Day 9 — Gradle with Kotlin DSL
+**Current milestone:** Day 9 — Gradle with Kotlin DSL (implementation and build verification completed)  
+**Next milestone:** Day 9 Git finalization, then Day 10 — JUnit 5
 
 ## Week 1 — Core Java and Modern Java
 
@@ -358,6 +358,115 @@ The Day 7 integrated project is complete within its agreed queue/concurrency sco
 
 The Week 1 conceptual audit does not imply that every optional hands-on extension was completed. No Day 7 expansion is required now.
 
+## Day 9 — Gradle with Kotlin DSL
+
+**Project:** `week-02-build-testing/day-09-gradle/`  
+**Java:** JDK 21  
+**Gradle:** 9.6.0 (Gradle Wrapper)  
+**Build language:** Kotlin DSL (`.gradle.kts`)  
+**Status:** Hands-on implementation and build verification completed; Git commit and push pending.
+
+### Architecture and Source Paths
+
+| Project | Plugin | Responsibility |
+|---|---|---|
+| Root | `base` | Build coordination and custom task exercises |
+| `order-api` | `java-library` | Shared `Order` record |
+| `order-service` | `java-library` | Order creation and validation |
+| `order-app` | `application` | Entry point, Jackson JSON serialization and distribution packaging |
+
+**Gradle configuration:** `settings.gradle.kts`, root `build.gradle.kts`, `gradle.properties`, each module's `build.gradle.kts`, `gradlew`, `gradlew.bat`, and `gradle/wrapper/`.
+
+**Java files:**
+- `order-api/src/main/java/com/tranquilonjoe/day09/Order.java`
+- `order-service/src/main/java/com/tranquilonjoe/day09/OrderService.java`
+- `order-app/src/main/java/com/tranquilonjoe/day09/OrderApplication.java`
+
+All paths above are relative to the Day 9 project directory.
+
+### Concepts and Exercises Completed
+
+- [x] Gradle versus Maven; Groovy DSL versus Kotlin DSL; Gradle Wrapper
+- [x] Initialization, configuration and execution phases
+- [x] Plugins, Java 21 toolchains, repositories and dependency configurations
+- [x] `tasks.register`, `doFirst`, `doLast`, lazy versus eager task creation
+- [x] Task relationships: `dependsOn`, `mustRunAfter`, `finalizedBy`; failure/finalizer demonstration
+- [x] Configuration cache versus build cache; `org.gradle.caching=true`
+- [x] Up-to-date checks, incremental compilation and `FROM-CACHE` restoration
+- [x] Converted original single-module app to three Gradle subprojects
+- [x] Demonstrated `implementation` versus `api` visibility with a real compile failure and fix
+- [x] Inspected `:order-app:dependencies --configuration runtimeClasspath`
+- [x] Ran the app through Gradle and through an installed launcher without Gradle
+- [x] Built and inspected the application ZIP distribution and its dependency JARs
+- [x] Changed root from `application` to `base` while preserving three custom tasks
+- [x] Verified full multi-project build with no root Java/application packaging tasks
+- [x] Removed the unused root `src` directory after checking for files
+- [x] Updated repository `.gitignore` to exclude `.gradle/` and `build/`
+- [x] Verified Git still sees wrapper, Kotlin DSL files and Java source
+- [ ] Commit and push Day 9
+- [ ] Record actual Day 9 commit hash
+
+### Verified Results
+
+Full build from `day-09-gradle/`:
+
+```bash
+./gradlew build --console=plain
+```
+
+Observed: `BUILD SUCCESSFUL in 7s`, `9 actionable tasks: 9 up-to-date`. Root executed `:assemble`, `:check`, `:build` lifecycle tasks; module builds succeeded. No root `:compileJava`, `:jar`, `:startScripts`, `:distZip` tasks after cleanup.
+
+**Application:** `./gradlew :order-app:run` succeeded and printed serialized JSON.
+
+**Distribution:** `./gradlew :order-app:installDist` produced an executable launcher at `order-app/build/install/order-app/bin/order-app`, which ran successfully without Gradle. `./gradlew :order-app:distZip` produced `order-app/build/distributions/order-app.zip`, containing launch scripts, module JARs and Jackson JARs.
+
+**Cache experiment:** Source Version A was `UP-TO-DATE`; a change to Version B caused incremental compilation and caching; reverting to A produced `FROM-CACHE`. Cleaning the application module's compilation outputs also allowed a cache hit. Distinguish existing valid outputs (`UP-TO-DATE`), restored outputs (`FROM-CACHE`), and recompilation of affected classes (incremental compilation).
+
+**Dependency experiment:** `order-service` initially used `implementation(project(":order-api"))`. Because its public API exposed `Order`, downstream `order-app` compilation failed. Switching to `api(project(":order-api"))` fixed the compile classpath. `api` is for dependencies exposed in a library's public API; `implementation` is for internal dependencies.
+
+### Revision Commands
+
+```bash
+./gradlew tasks
+./gradlew build --console=plain
+./gradlew :order-api:build
+./gradlew :order-service:build
+./gradlew :order-app:build
+./gradlew :order-app:dependencies --configuration runtimeClasspath
+./gradlew :order-app:run
+./gradlew :order-app:installDist
+./gradlew :order-app:distZip
+./gradlew printBuildInfo
+./gradlew prepareDeployment
+./gradlew build --configuration-cache
+./gradlew :order-app:compileJava --info --console=plain
+```
+
+### Interview and Production Revision Points
+
+- Gradle executes a task graph, unlike Maven's fixed lifecycle phases.
+- `settings.gradle.kts` declares project structure; project `build.gradle.kts` configures build behavior.
+- Gradle Wrapper selects the Gradle distribution; Java toolchains configure Java used by applicable tasks.
+- `dependsOn` introduces a dependency; `mustRunAfter` only orders tasks if both execute; `finalizedBy` registers cleanup/finalization.
+- Configuration cache reuses configuration state; build cache reuses task outputs.
+- `UP-TO-DATE` and `FROM-CACHE` represent different reasons a task did not execute its actions.
+- `api` versus `implementation` controls downstream compile-time visibility.
+- A successful compile alone does not prove runtime correctness.
+- Thin JARs generally exclude third-party dependency JARs; an application distribution packages a launcher and runtime libraries; a fat JAR bundles dependencies into one archive.
+- The root `base` plugin supplies lifecycle tasks without compiling Java at root.
+- Ignore generated `.gradle/` and `build/` directories, but commit Gradle Wrapper scripts, properties and JAR.
+
+### Deferred/Follow-up Work
+
+- [ ] Explore custom cacheable task inputs/outputs and configuration-cache-safe task implementation.
+- [ ] Compare Gradle platforms, version catalogs, dependency constraints and locking with Maven dependency management.
+- [ ] Review Spring Boot executable JAR packaging later in the roadmap.
+- [ ] Complete Day 9 Git commit/push and record its real hash.
+
+**Git commit:** Pending.  
+**Revision status:** Implementation and build verification completed; Git finalization pending.  
+**Next milestone:** Day 10 — JUnit 5 and parameterized testing.
+
 ## Roadmap Alignment and Coverage Tracking
 
 **Master syllabus:** Original six-week Senior Java Developer Comeback Roadmap.
@@ -383,7 +492,7 @@ The Week 1 conceptual audit does not imply that every optional hands-on extensio
 ### Week 2 — Planned Work
 
 - [x] Original Day 8 — Maven and dependency management (completed as actual Day 6; commit `851bebb`)
-- [ ] Day 9 — Gradle, Kotlin DSL and Maven-to-Gradle conversion
+- [x] Day 9 — Gradle, Kotlin DSL and Maven-to-Gradle conversion (build verified; commit/push pending)
 - [ ] Day 10 — JUnit 5 and parameterized testing
 - [ ] Day 11 — Mockito, mocks, stubs and spies
 - [ ] Day 12 — Testcontainers and database integration testing
